@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ericius",
+  "name": "Ericius",
+  "description": "Ericius utilities.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Loulfy"],
+  "credits": "Goju_Sulfam",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
