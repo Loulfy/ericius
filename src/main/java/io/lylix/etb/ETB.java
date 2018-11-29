@@ -1,4 +1,4 @@
-package io.lylix.ericius;
+package io.lylix.etb;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -27,15 +27,16 @@ import java.util.Map;
 import java.util.Properties;
 
 @Mod.EventBusSubscriber
-@Mod(modid = Ericius.MODID, name = Ericius.NAME, version = Ericius.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
-public class Ericius
+@Mod(modid = ETB.MODID, name = ETB.NAME, version = ETB.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
+public class ETB
 {
-    public static final String MODID = "ericius";
-    public static final String NAME = "Ericius";
+    public static final String MODID = "etb";
+    public static final String NAME = "ETB";
     public static final String VERSION = "${version}";
+    public static final String SPAWN = "etb-spawn.txt";
 
     @Mod.Instance
-    public static Ericius instance;
+    public static ETB instance;
 
     private static Logger logger;
 
@@ -61,7 +62,7 @@ public class Ericius
         WorldBorder border = world.getWorldBorder();
         if(border.getClosestDistance(event.player) < 0)
         {
-            Ericius.logger.info("WorldBorderRedirect : {} from {} to {}", event.player.getName(), event.fromDim, event.toDim);
+            ETB.logger.info("WorldBorderRedirect : {} from {} to {}", event.player.getName(), event.fromDim, event.toDim);
             MinecraftServer s = FMLCommonHandler.instance().getMinecraftServerInstance();
             s.getPlayerList().transferPlayerToDimension((EntityPlayerMP) event.player, event.toDim, new TeleportToSpawn());
         }
@@ -69,7 +70,7 @@ public class Ericius
 
     public void parse(File dir)
     {
-        File file = new File(dir, "ericius-spawn.txt");
+        File file = new File(dir, SPAWN);
         Properties props = new Properties();
 
         try
@@ -118,7 +119,7 @@ class TeleportToSpawn implements ITeleporter
     @Override
     public void placeEntity(World world, Entity entity, float yaw)
     {
-        BlockPos p = Ericius.instance.getSpawn(world);
+        BlockPos p = ETB.instance.getSpawn(world);
         entity.setLocationAndAngles(p.getX(), p.getY(), p.getZ(), entity.rotationYaw, 0.0F);
         entity.motionX = 0.0D;
         entity.motionY = 0.0D;

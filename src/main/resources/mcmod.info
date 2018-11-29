@@ -1,7 +1,7 @@
 [
 {
-  "modid": "ericius",
-  "name": "Ericius",
+  "modid": "etb",
+  "name": "Ericius ToolBox",
   "description": "Ericius utilities.",
   "version": "${version}",
   "mcversion": "${mcversion}",
