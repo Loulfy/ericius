@@ -27,12 +27,11 @@ import java.util.Map;
 import java.util.Properties;
 
 @Mod.EventBusSubscriber
-@Mod(modid = ETB.MODID, name = ETB.NAME, version = ETB.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
+@Mod(modid = ETB.MODID, name = ETB.NAME, version = "${version}", serverSideOnly = true, acceptableRemoteVersions = "*")
 public class ETB
 {
     public static final String MODID = "etb";
     public static final String NAME = "ETB";
-    public static final String VERSION = "${version}";
     public static final String SPAWN = "etb-spawn.txt";
 
     @Mod.Instance
